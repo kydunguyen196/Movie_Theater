@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="HN23_FRF_FJW_04_Movie_Theater" />
+        <module name="SWP_391_Movie_Theater" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="HN23_FRF_FJW_04_Movie_Theater" options="-parameters" />
+      <module name="SWP_391_MovieTheater" options="-parameters" />
+      <module name="SWP_391_Movie_Theater" options="-parameters" />
+    </option>
+  </component>
+</project>

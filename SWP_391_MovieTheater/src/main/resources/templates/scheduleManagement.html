@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Show Time</title>
+    <!-- Required meta tags -->
+    <th:block th:replace="~{common/head :: headFragment}"></th:block>
+
+    <!--  Inject CSS -->
+    <link rel="stylesheet" href="/style/common_manager.css">
+    <link rel="stylesheet" href="/style/showtime.css">
+    <link rel="stylesheet" href="/style/scheduleManagement.css">
+    <link rel="stylesheet" href="/style/adminMovieList.css">
+</head>
+
+<body>
+<div class="container-custom">
+    <div th:replace="~{common/sideBar :: sideBarFragment }"></div>
+
+    <div class="tab-content">
+        <div class="header">
+            <div>
+                <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                <h1>SHOWTIME</h1>
+            </div>
+        </div>
+        <div class="main-content container p-5 ">
+            <div class="row">
+                <!-- sửa ở đây  -->
+                <div class="row">
+                </div>
+
+                <label for="inputScheduleDate" class="form-label fw-bold fs-4" style="width: 25%">Select day: </label>
+                <div class="card card-body p-0 me-2">
+                    <div class="d-flex" role="search">
+                        <input type="date" class="form-control border" id="inputScheduleDate">
+                        <button class="btn btn-dark" id="selectDay" style="width: 25%">Confirm<i class="bi bi-search"></i></button>
+                    </div>
+                </div>
+
+                <div class="row mt-5 mb-3 border border-dark"></div>
+
+
+
+                <div id="scheduleRoomContent">
+                    <!--List room-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal change type-->
+<div class="modal fade" id="modalChooseMovie" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+     data-bs-keyboard="false"
+     tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg bg-dark text-light">
+                <div class="col-12 d-flex justify-content-center">
+                    <h2 class="d-inline-block fw-bold" id="headerContent">CHOOSE MOVIE</h2>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="row m-3 bg-body-secondary d-flex algin-items-center">
+                    <form class="row">
+                        <div class="col-6">
+                            <label class="fw-semibold" for="timeChosen">Choose Start Time: </label>
+                            <input type="time" id="timeChosen">
+                        </div>
+                        <div class="col-6">
+                            <div>
+                                <span class="fw-semibold">Chosen Movie: </span>
+                                <span class="" id="movieChosenName"></span>
+                            </div>
+                            <div>
+                                <span class="fw-semibold">Duration: </span>
+                                <span class="" id="movieChosenLong"></span>
+                            </div>
+
+                        </div>
+                    </form>
+                    <div class="col-12 d-flex justify-content-end">
+                        <button class="btn btn-dark" id="confirm-time-and-movie-chosen">Choose</button>
+                    </div>
+                </div>
+                <div class="border border-dark-subtle"></div>
+                <div class="row m-3 bg-body-secondary d-flex align-items-center">
+                    <div class="card card-body p-0 me-2">
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2 " type="search" placeholder="Search movie..."
+                                   aria-label="Search" id="searchMovie">
+                            <button class="btn btn-dark" type="submit"><i class="bi bi-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+                <div class="row m-3 bg-body-secondary d-flex justify-content-around">
+                    <div class="row mt-3 mb-3 movie-list-content">
+                        <!--                            Movie list is here-->
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-between">
+                <span class="fw-semibold fst-italic fs-6" style="color: red"
+                      id="inputTypeNameMessage"></span>
+                <button type="button" class="btn btn-secondary me-4" data-bs-dismiss="modal">Close
+                </button>
+                <!--                <button class="btn btn-danger" data-bs-target="#" data-bs-toggle="modal"-->
+                <!--                        id="confirm-type-chosen">Choose-->
+                <!--                </button>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--                <div class="row mt-4 schedule" data-room-id="1">-->
+<!--                    <div class="col-12">-->
+<!--                        <div class="d-flex align-items-center justify-content-center" style="height: 100%">-->
+<!--                            <h4 class="fw-bold room-name">ROOM 1</h4>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-12 px-0 time-movie-detail">-->
+<!--                        <div class="container">-->
+<!--                            <div class="row">-->
+<!--                                <div class="fw-bold text-center detail-time col p-0"; style="overflow: hidden">00:00</div>-->
+<!--                                <div class="fw-bold text-center detail-time col p-0"; style="overflow: hidden">01:00</div>-->
+<!--                                <div class="fw-bold text-center detail-time col p-0"; style="overflow: hidden">02:00</div>-->
+<!--                                <div class="fw-bold text-center detail-time col p-0"; style="overflow: hidden">03:00</div>-->
+<!--                                <div class="fw-bold text-center detail-time col p-0"; style="overflow: hidden">04:00</div>-->
+<!--                                <div class="fw-bold text-center detail-time col p-0"; style="overflow: hidden">05:00</div>-->
+<!--                                <div class="fw-bold text-center detail-time col p-0"; style="overflow: hidden">06:00</div>-->
+<!--                                <div class="fw-bold text-center detail-time col p-0"; style="overflow: hidden">07:00</div>-->
+<!--                                <div class="fw-bold text-center detail-time col p-0"; style="overflow: hidden">08:00</div>-->
+<!--                                <div class="fw-bold text-center detail-time col p-0"; style="overflow: hidden">09:00</div>-->
+<!--                                <div class="fw-bold text-center detail-time col p-0"; style="overflow: hidden">10:00</div>-->
+<!--                                <div class="fw-bold text-center detail-time col p-0"; style="overflow: hidden">11:00</div>-->
+<!--                                <div class="fw-bold text-center detail-time col p-0"; style="overflow: hidden">12:00</div>-->
+<!--                                <div class="fw-bold text-center detail-time col p-0"; style="overflow: hidden">13:00</div>-->
+<!--                                <div class="fw-bold text-center detail-time col p-0"; style="overflow: hidden">14:00</div>-->
+<!--                                <div class="fw-bold text-center detail-time col p-0"; style="overflow: hidden">15:00</div>-->
+<!--                                <div class="fw-bold text-center detail-time col p-0"; style="overflow: hidden">16:00</div>-->
+<!--                                <div class="fw-bold text-center detail-time col p-0"; style="overflow: hidden">17:00</div>-->
+<!--                                <div class="fw-bold text-center detail-time col p-0"; style="overflow: hidden">18:00</div>-->
+<!--                                <div class="fw-bold text-center detail-time col p-0"; style="overflow: hidden">19:00</div>-->
+<!--                                <div class="fw-bold text-center detail-time col p-0"; style="overflow: hidden">20:00</div>-->
+<!--                                <div class="fw-bold text-center detail-time col p-0"; style="overflow: hidden">21:00</div>-->
+<!--                                <div class="fw-bold text-center detail-time col p-0"; style="overflow: hidden">22:00</div>-->
+<!--                                <div class="fw-bold text-center detail-time col p-0"; style="overflow: hidden; border-right: 2px solid black">23:00</div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-12 px-0">-->
+<!--                        <div class="progress-stacked bg bg-dark" style="border: 2px solid black; height: 65px;-->
+<!--                            border-top-left-radius: 0; border-top-right-radius: 0">-->
+
+<!--                            <div class="progress empty-schedule" role="progressbar" aria-label="Segment one"-->
+<!--                                 aria-valuenow="0"-->
+<!--                                 aria-valuemin="0" aria-valuemax="1440"-->
+<!--                                 data-movie-id="">-->
+<!--                                <div class="progress-bar bg bg-dark">-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-12 mt-1">-->
+<!--                        <button type="button" class="btn btn-danger open-modal-add-schedule" data-dismiss="modal">-->
+<!--                            + Add Movie-->
+<!--                        </button>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+
+<!-- Bootstrap JavaScript Libraries -->
+<th:block th:replace="~{common/scriptFile :: scriptFragment}"></th:block>
+<!-- Inject js-->
+<script src="/js/common_get_account.js"></script>
+<script src="/js/scheduleManagement.js"></script>
+<!-- Inject js-->
+</body>
+
+</html>

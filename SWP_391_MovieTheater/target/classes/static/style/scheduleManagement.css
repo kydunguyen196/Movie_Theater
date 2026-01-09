@@ -1,0 +1,42 @@
+.detail-time {
+    border-radius: 4px 4px 0 0; /* Border radius for top two corners */
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    color: red;
+    font-size: 12px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    height: 24px;
+}
+
+.custom-popover {
+    --bs-popover-max-width: 200px;
+    --bs-popover-border-color: black;
+    --bs-popover-header-bg: red;
+    --bs-popover-header-color: white;
+    --bs-popover-body-padding-x: 1rem;
+    --bs-popover-body-padding-y: .5rem;
+    width: 200px;
+}
+
+.clicked {
+    border: 3px solid white;
+    opacity: 80%;
+}
+
+.empty-schedule {
+    width: 100%;
+    height: 100%;
+}
+
+.movie-time-in-schedule {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.popover-body{
+    padding: 0;
+    width: 100%;
+}

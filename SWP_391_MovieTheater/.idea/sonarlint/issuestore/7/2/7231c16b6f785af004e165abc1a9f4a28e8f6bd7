@@ -1,0 +1,15 @@
+
+`
+java:S1128">Remove this unused import 'com.movie_theater.dto.ResponseDTO'.(âù¯ëùÿÿÿÿ8£İÓ¡â1
+W
+java:S1128":Remove this unused import 'com.movie_theater.dto.TypeDTO'.(ïÉıù8£İÓ¡â1
+\
+java:S1128":Remove this unused import 'com.movie_theater.entity.Type'.(æŠ¡¡ÿÿÿÿÿ8¤İÓ¡â1
+b
+java:S1128"ERemove this unused import 'com.movie_theater.service.AccountService'.(·ç¼8¤İÓ¡â1
+u
+java:S1128"SRemove this unused import 'org.springframework.beans.factory.annotation.Autowired'.(¡¸Îùÿÿÿÿ8¤İÓ¡â1
+f
+java:S1128"DRemove this unused import 'org.springframework.http.ResponseEntity'.(¶¯ø¦úÿÿÿÿ8¤İÓ¡â1
+Q
+java:S1128"/Remove this unused import 'java.util.Optional'.(¨˜ëİüÿÿÿÿ8¤İÓ¡â1

@@ -1,0 +1,14 @@
+
+h
+java:S6204L"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹
+a
+java:S1128
+"FRemove this unused import 'com.movie_theater.service.ScheduleService'.(ÛÞèïÿÿÿÿÿ
+M
+java:S1128"2Remove this unused import 'java.util.Collections'.(¢³ïÓþÿÿÿÿ
+I
+java:S1068"3Remove this unused "movieRepository" private field.(ëÄ•ö
+H
+java:S1068"2Remove this unused "seatRepository" private field.(Ò¬³Ú
+V
+java:S1068";Remove this unused "movieScheduleRepository" private field.(‡çÏ÷úÿÿÿÿ
